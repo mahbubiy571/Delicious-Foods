@@ -23,7 +23,7 @@ function Navbar() {
         </h2>
       </div>
 
-      <div className="flex gap-3 items-center">
+      <div className="flex md:gap-3 gap-1 items-center">
         <span className="text-lg font-medium bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
           {user?.displayName || "User"}
         </span>
@@ -34,7 +34,7 @@ function Navbar() {
               role="button"
               className="btn btn-ghost btn-circle avatar hover:ring-2 hover:ring-gray-600"
             >
-              <div className="w-10 rounded-full border border-gray-700">
+              <div className="w-7 md:w-8 rounded-full border border-gray-700">
                 <img
                   alt="User avatar"
                   src={`https://ui-avatars.com/api/?name=${encodeURIComponent(
