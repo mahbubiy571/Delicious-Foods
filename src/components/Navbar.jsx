@@ -5,6 +5,7 @@ import { AiFillHome } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const { _logout, isPending } = useLogout();
@@ -63,17 +64,23 @@ function Navbar() {
                          shadow-2xl border border-gray-700"
             >
               <li>
-                <a className="flex items-center justify-between hover:bg-gray-700 rounded-lg hover:text-white duration-300">
+                <NavLink
+                  to="/"
+                  className="flex items-center justify-between hover:bg-gray-700 rounded-lg hover:text-white duration-300"
+                >
                   Home
                   <AiFillHome className="text-xl text-blue-400" />
-                </a>
+                </NavLink>
               </li>
 
               <li>
-                <a className="flex items-center justify-between hover:bg-gray-700 rounded-lg hover:text-white duration-300">
+                <NavLink
+                  to="/createrecipe"
+                  className="flex items-center justify-between hover:bg-gray-700 rounded-lg hover:text-white duration-300"
+                >
                   Create Recipe
                   <FaEdit className="text-blue-500 size-4.5" />
-                </a>
+                </NavLink>
               </li>
               <li className="hover:bg-gray-700 rounded-lg duration-300">
                 <button
