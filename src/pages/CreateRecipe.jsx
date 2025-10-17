@@ -50,8 +50,8 @@ function CreateRecipe() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-6 px-3 flex justify-center items-start">
-      <div className="w-full max-w-6xl bg-white rounded-2xl shadow-2xl p-5 sm:p-8 relative">
+    <div className="min-h-screen py-6 px-3 flex justify-center items-start">
+      <div className="w-full max-w-6xl rounded-2xl shadow-2xl p-5 sm:p-8 relative">
         <Link
           to="/"
           className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-2 px-2.5 sm:px-3 py-2 

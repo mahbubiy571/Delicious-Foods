@@ -64,7 +64,7 @@ export default function RecipeDetail() {
 
           <section>
             <h2 className="text-2xl font-semibold mb-3">
-              👩‍🍳{" "}
+              👨‍🍳{" "}
               <span className="bg-gradient-to-r from-purple-500 to-blue-600 bg-clip-text text-transparent">
                 Method
               </span>
