@@ -3,7 +3,6 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { useNavigate, Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function CreateRecipe() {
@@ -160,8 +159,6 @@ function CreateRecipe() {
           </div>
         </form>
       </div>
-
-      <ToastContainer />
     </div>
   );
 }
