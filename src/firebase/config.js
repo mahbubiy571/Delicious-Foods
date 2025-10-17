@@ -3,15 +3,14 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBAYc-dkC6bjkXxs-329pO0bsSGvI2cJdE",
-  authDomain: "delicious-foods-f88d2.firebaseapp.com",
-  projectId: "delicious-foods-f88d2",
-  storageBucket: "delicious-foods-f88d2.firebasestorage.app",
-  messagingSenderId: "950355528207",
-  appId: "1:950355528207:web:0524046d8bbed127e3b17a",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 //auth
