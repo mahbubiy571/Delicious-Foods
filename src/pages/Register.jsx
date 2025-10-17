@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { formError } from "../components/ErrorId";
 import { useGoogle } from "../hooks/useGoogle";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -23,7 +24,11 @@ function Register() {
 
   useEffect(() => {
     if (user?.name && user?.email && user?.password) {
-      register(user.name, user.email, user.password);
+      register(user.name, user.email, user.password)
+        .then(() => toast.success("Ro‘yxatdan muvaffaqiyatli o‘tdingiz!"))
+        .catch((err) =>
+          toast.error(err?.message || "Ro‘yxatdan o‘tishda xatolik")
+        );
       setError(false);
     } else {
       setError(user ? formError(user) : false);

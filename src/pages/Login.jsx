@@ -5,6 +5,7 @@ import { useResetPassword } from "../hooks/useResetPassword";
 import { formError, getFirebaseErrorMessage } from "../components/ErrorId";
 import { useGoogle } from "../hooks/useGoogle";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -27,14 +28,22 @@ function Login() {
 
   useEffect(() => {
     if (user?.email && user?.password) {
-      _login(user.email, user.password);
+      _login(user.email, user.password)
+        .then(() => toast.success("Tizimga muvaffaqiyatli kirdingiz!"))
+        .catch((err) =>
+          toast.error(getFirebaseErrorMessage(err) || "Login xatosi")
+        );
       setError(false);
     } else {
       setError(user ? formError(user) : false);
     }
 
     if (user?.emailRecovery) {
-      resetPassword(user.emailRecovery);
+      resetPassword(user.emailRecovery)
+        .then(() => toast.info("Parol tiklash linki emailingizga yuborildi"))
+        .catch((err) =>
+          toast.error(getFirebaseErrorMessage(err) || "Parol tiklashda xato")
+        );
       setError(false);
       setEmailRecovery("");
     }

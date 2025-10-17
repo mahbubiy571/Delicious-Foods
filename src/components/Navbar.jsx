@@ -4,11 +4,24 @@ import { useTheme } from "../hooks/useTheme";
 import { AiFillHome } from "react-icons/ai";
 import { FaUtensils } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 function Navbar() {
   const { _logout, isPending } = useLogout();
   const { user } = useSelector((store) => store.user);
   const { theme, toggleTheme } = useTheme();
+
+  const handleLogout = async () => {
+    const confirmLogout = window.confirm("Rostan ham chiqmoqchimisiz?");
+    if (!confirmLogout) return;
+
+    try {
+      await _logout();
+      toast.info("Tizimdan chiqdingiz.");
+    } catch (err) {
+      toast.error("Chiqishda xato yuz berdi.");
+    }
+  };
 
   return (
     <div className="navbar bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-lg md:px-6">
@@ -91,7 +104,7 @@ function Navbar() {
 
               <li>
                 <button
-                  onClick={_logout}
+                  onClick={handleLogout}
                   disabled={isPending}
                   className="hover:bg-red-600 rounded-lg hover:text-white duration-300 justify-between"
                 >

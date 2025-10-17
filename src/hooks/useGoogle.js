@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../app/features/userSlice";
 import { getFirebaseErrorMessage } from "../components/ErrorId";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 export const useGoogle = () => {
   const dispatch = useDispatch();
@@ -46,10 +47,14 @@ export const useGoogle = () => {
       }
 
       dispatch(login(req.user));
-      console.log(req.user);
+
+      toast.success("Google orqali kirdingiz!");
     } catch (error) {
-      setError(getFirebaseErrorMessage(error.message));
+      const errMsg = getFirebaseErrorMessage(error.message);
+      setError(errMsg);
       console.log(error.message);
+
+      toast.error(errMsg);
     } finally {
       setIsPending(false);
     }
