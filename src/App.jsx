@@ -1,20 +1,22 @@
 import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from "./firebase/config";
-import { login, logout, isAuthReady } from "./app/features/userSlice";
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/config";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import "react-toastify/dist/ReactToastify.css";
+
 import MainLayout from "./layouts/MainLayout";
+import { login, logout, isAuthReady } from "./app/features/userSlice";
 import Login, { action as loginAction } from "./pages/Login";
 import Register, { action as registerAction } from "./pages/Register";
-import Home from "./pages/Home";
-import ProtectedRoutes from "./components/ProtectedRoutes";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Home, CreateRecipe, RecipeCard } from "./pages/index";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +59,20 @@ function App() {
           <MainLayout />
         </ProtectedRoutes>
       ),
-      children: [{ index: true, element: <Home /> }],
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "/createrecipe",
+          element: <CreateRecipe />,
+        },
+        {
+          path: "/recipe/:id",
+          element: <RecipeCard />,
+        },
+      ],
     },
     {
       path: "/register",
