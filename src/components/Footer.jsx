@@ -11,10 +11,6 @@ function Footer() {
       <div className="mx-auto px-14 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-2xl font-bold tracking-wider">🍳 MyRecipes</div>
 
-        <div className="mt-2 text-center text-gray-500 text-xs">
-          © {new Date().getFullYear()} MyRecipes. All rights reserved.
-        </div>
-
         <div className="flex gap-4 text-xl">
           <a
             href="https://facebook.com/avazbek.web"
