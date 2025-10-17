@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useLogout } from "../hooks/useLogout";
 import { useTheme } from "../hooks/useTheme";
 import { AiFillHome } from "react-icons/ai";
-import { FaUtensils } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { toast } from "react-toastify";
 
@@ -70,9 +70,9 @@ function Navbar() {
               </li>
 
               <li>
-                <a className="flex items-center justify-between pr-4 hover:bg-gray-700 rounded-lg hover:text-white duration-300">
+                <a className="flex items-center justify-between hover:bg-gray-700 rounded-lg hover:text-white duration-300">
                   Create Recipe
-                  <FaUtensils className="text-lg text-green-400" />
+                  <FaEdit className="text-blue-500 size-4.5" />
                 </a>
               </li>
               <li className="hover:bg-gray-700 rounded-lg duration-300">
