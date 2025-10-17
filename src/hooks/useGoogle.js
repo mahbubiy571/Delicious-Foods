@@ -48,7 +48,7 @@ export const useGoogle = () => {
 
       dispatch(login(req.user));
 
-      toast.success("Google orqali kirdingiz!");
+      toast.success("Tizimga muvaffaqiyatli kirdingiz!");
     } catch (error) {
       const errMsg = getFirebaseErrorMessage(error.message);
       setError(errMsg);
