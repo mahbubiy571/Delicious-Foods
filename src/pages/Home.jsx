@@ -1,5 +1,10 @@
+import Recipes from "./Recipes";
 function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Recipes />
+    </div>
+  );
 }
 
 export default Home;

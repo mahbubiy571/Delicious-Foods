@@ -16,7 +16,7 @@ import MainLayout from "./layouts/MainLayout";
 import { login, logout, isAuthReady } from "./app/features/userSlice";
 import Login, { action as loginAction } from "./pages/Login";
 import Register, { action as registerAction } from "./pages/Register";
-import { Home, CreateRecipe, RecipeCard } from "./pages/index";
+import { Home, CreateRecipe, RecipeDetail, Recipes } from "./pages/index";
 
 function App() {
   const dispatch = useDispatch();
@@ -70,7 +70,11 @@ function App() {
         },
         {
           path: "/recipe/:id",
-          element: <RecipeCard />,
+          element: <RecipeDetail />,
+        },
+        {
+          path: "/recipes",
+          element: <Recipes />,
         },
       ],
     },

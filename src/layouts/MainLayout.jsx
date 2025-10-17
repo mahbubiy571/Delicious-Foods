@@ -4,13 +4,19 @@ import Footer from "../components/Footer";
 
 function MainLayout() {
   return (
-    <>
-      <Navbar />
-      <main>
+    <div className="flex flex-col min-h-screen">
+      <header>
+        <Navbar />
+      </header>
+
+      <main className="p-4">
         <Outlet />
       </main>
-      <Footer />
-    </>
+
+      <footer className="mt-auto">
+        <Footer />
+      </footer>
+    </div>
   );
 }
 
